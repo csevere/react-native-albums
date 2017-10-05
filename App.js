@@ -5,7 +5,7 @@ import AlbumList from './src/components/AlbumList';
 
 
 const App = () =>(
-  <View>
+  <View style = {{flex: 1}}>
       <Header headerText = {'Albums'}/> 
       <AlbumList/>
   </View> 
@@ -35,3 +35,6 @@ AppRegistry.registerComponent('react-native-albums', () => App);
 // });
 
 export default App; 
+
+// style = {{flex: 1}} >> please expand the components to fill entire view
+
