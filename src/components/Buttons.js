@@ -2,12 +2,12 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
 
-const Buttons = () => {
+const Buttons = ({ pressIt, children }) => {
     const {buttonStyle, textStyle} = styles; 
     return(
-        <TouchableOpacity style = {buttonStyle}>
+        <TouchableOpacity onPress = {pressIt} style = {buttonStyle}>
             <Text style = {textStyle}>
-                Buy Album
+                {children}
             </Text>
         </TouchableOpacity>
     );
@@ -36,4 +36,8 @@ const styles = {
     }
 };
 
-export default Buttons 
+export default Buttons;
+
+//handling click events from user: onPress = {()=> console.log('pressed!')}
+//use TouchableHighlight or TouchableOpacity 
+//wanna make a general logic for the button to reuse it elsewhere

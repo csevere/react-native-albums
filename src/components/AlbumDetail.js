@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native'; 
+import { Text, View, Image, Linking } from 'react-native'; 
 import Card from './Card';
 import CardSection from './CardSection';
 import Buttons from './Buttons';
 
 const AlbumDetail = ({album}) =>{
-    const {title, artist, thumbnail_image, image} = album;
+    const {title, artist, thumbnail_image, image, url} = album;
     const {
         thumbmailStyle, 
         headerContentStyle,
@@ -24,7 +24,7 @@ const AlbumDetail = ({album}) =>{
                         source = {{uri:thumbnail_image }} 
                     />
                 </View>
-                
+
                 <View style = {headerContentStyle}>
                     <Text style = {headerTextStyle}>{title}</Text>
                     <Text>{artist}</Text> 
@@ -39,8 +39,9 @@ const AlbumDetail = ({album}) =>{
             </CardSection>
 
             <CardSection>
-                <Buttons/>
-        
+                <Buttons pressIt = {() => {Linking.openURL(url)}}>
+                    Buy Now
+                </Buttons>
             </CardSection>
         </Card>
     )
@@ -94,3 +95,5 @@ export default AlbumDetail
 // </View>
 // </CardSection> 
 // </Card>
+
+//pressIt for Buttons is just a function, not a prop built in like the onPress in TouchableOpacity 
